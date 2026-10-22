@@ -136,12 +136,12 @@ class _Level1HeroState extends State<Level1Hero> {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
           decoration: BoxDecoration(
-            color: AppColors.flutterCyan.withOpacity(0.1),
+            color: AppColors.flutterCyan.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(30),
-            border: Border.all(color: AppColors.flutterCyan.withOpacity(0.35)),
+            border: Border.all(color: AppColors.flutterCyan.withValues(alpha: 0.35)),
             boxShadow: [
               BoxShadow(
-                color: AppColors.flutterCyan.withOpacity(0.15),
+                color: AppColors.flutterCyan.withValues(alpha: 0.15),
                 blurRadius: 10,
               ),
             ],
@@ -257,7 +257,7 @@ class _Level1HeroState extends State<Level1Hero> {
             ),
             _HeroOutlineButton(
               text: AppStrings.btnDownloadResume,
-              icon: Icons.download_rounded,
+              icon: Icons.description_rounded,
               onTap: widget.onDownloadResumeTapped,
             ),
           ],
@@ -270,16 +270,16 @@ class _Level1HeroState extends State<Level1Hero> {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: isPrimary ? 14 : 11, vertical: isPrimary ? 8 : 6),
       decoration: BoxDecoration(
-        color: color.withOpacity(isPrimary ? 0.15 : 0.08),
+        color: color.withValues(alpha: isPrimary ? 0.15 : 0.08),
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: color.withOpacity(isPrimary ? 0.6 : 0.25),
+          color: color.withValues(alpha: isPrimary ? 0.6 : 0.25),
           width: isPrimary ? 1.5 : 1.0,
         ),
         boxShadow: isPrimary
             ? [
                 BoxShadow(
-                  color: color.withOpacity(0.2),
+                  color: color.withValues(alpha: 0.2),
                   blurRadius: 10,
                 ),
               ]
@@ -342,7 +342,7 @@ class _HeroPrimaryButtonState extends State<_HeroPrimaryButton> {
             borderRadius: BorderRadius.circular(14),
             boxShadow: [
               BoxShadow(
-                color: AppColors.flutterCyan.withOpacity(_isHovered ? 0.5 : 0.3),
+                color: AppColors.flutterCyan.withValues(alpha: _isHovered ? 0.5 : 0.3),
                 blurRadius: _isHovered ? 24 : 14,
                 offset: const Offset(0, 4),
               ),
@@ -407,7 +407,7 @@ class _HeroSecondaryButtonState extends State<_HeroSecondaryButton> {
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.3),
+                color: Colors.black.withValues(alpha: 0.3),
                 blurRadius: 10,
               ),
             ],

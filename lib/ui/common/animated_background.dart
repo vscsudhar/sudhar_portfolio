@@ -93,8 +93,8 @@ class _GlowBlobsPainter extends CustomPainter {
     final paint1 = Paint()
       ..shader = RadialGradient(
         colors: [
-          AppColors.flutterCyan.withOpacity(0.12),
-          AppColors.flutterBlue.withOpacity(0.06),
+          AppColors.flutterCyan.withValues(alpha: 0.12),
+          AppColors.flutterBlue.withValues(alpha: 0.06),
           Colors.transparent,
         ],
         stops: const [0.0, 0.45, 1.0],
@@ -110,8 +110,8 @@ class _GlowBlobsPainter extends CustomPainter {
     final paint2 = Paint()
       ..shader = RadialGradient(
         colors: [
-          AppColors.accentIndigo.withOpacity(0.10),
-          AppColors.accentPurple.withOpacity(0.04),
+          AppColors.accentIndigo.withValues(alpha: 0.10),
+          AppColors.accentPurple.withValues(alpha: 0.04),
           Colors.transparent,
         ],
         stops: const [0.0, 0.5, 1.0],
@@ -127,8 +127,8 @@ class _GlowBlobsPainter extends CustomPainter {
     final paint3 = Paint()
       ..shader = RadialGradient(
         colors: [
-          AppColors.accentNeonGreen.withOpacity(0.08),
-          AppColors.flutterCyan.withOpacity(0.03),
+          AppColors.accentNeonGreen.withValues(alpha: 0.08),
+          AppColors.flutterCyan.withValues(alpha: 0.03),
           Colors.transparent,
         ],
         stops: const [0.0, 0.4, 1.0],

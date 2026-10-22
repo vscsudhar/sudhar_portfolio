@@ -80,18 +80,18 @@ class _ProfileImageState extends State<ProfileImage> {
             end: Alignment.bottomRight,
           ),
           border: Border.all(
-            color: AppColors.flutterCyan.withOpacity(0.45),
+            color: AppColors.flutterCyan.withValues(alpha: 0.45),
             width: 2.0,
           ),
           boxShadow: [
             BoxShadow(
-              color: AppColors.flutterCyan.withOpacity(0.25),
+              color: AppColors.flutterCyan.withValues(alpha: 0.25),
               blurRadius: 28,
               spreadRadius: 2,
               offset: const Offset(0, 8),
             ),
             BoxShadow(
-              color: AppColors.accentIndigo.withOpacity(0.2),
+              color: AppColors.accentIndigo.withValues(alpha: 0.2),
               blurRadius: 36,
               spreadRadius: 4,
             ),
@@ -118,6 +118,7 @@ class _ProfileImageState extends State<ProfileImage> {
                 Image.asset(
                   _resolvedAssetPath!,
                   fit: BoxFit.cover,
+                  alignment: Alignment.topCenter,
                   width: widget.size,
                   height: widget.size,
                   errorBuilder: (context, error, stackTrace) => _buildFallback(),
@@ -136,7 +137,7 @@ class _ProfileImageState extends State<ProfileImage> {
                     gradient: LinearGradient(
                       colors: [
                         Colors.transparent,
-                        AppColors.flutterCyan.withOpacity(0.18),
+                        AppColors.flutterCyan.withValues(alpha: 0.18),
                       ],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
@@ -159,10 +160,10 @@ class _ProfileImageState extends State<ProfileImage> {
           Container(
             padding: EdgeInsets.all(widget.size * 0.12),
             decoration: BoxDecoration(
-              color: AppColors.flutterCyan.withOpacity(0.12),
+              color: AppColors.flutterCyan.withValues(alpha: 0.12),
               shape: BoxShape.circle,
               border: Border.all(
-                color: AppColors.flutterCyan.withOpacity(0.3),
+                color: AppColors.flutterCyan.withValues(alpha: 0.3),
                 width: 1.5,
               ),
             ),

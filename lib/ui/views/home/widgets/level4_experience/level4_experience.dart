@@ -46,9 +46,9 @@ class Level4Experience extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
           decoration: BoxDecoration(
-            color: AppColors.accentIndigo.withOpacity(0.15),
+            color: AppColors.accentIndigo.withValues(alpha: 0.15),
             borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: AppColors.accentIndigo.withOpacity(0.4)),
+            border: Border.all(color: AppColors.accentIndigo.withValues(alpha: 0.4)),
           ),
           child: Text(
             "LEVEL 04 • DEVELOPMENT JOURNEY",
@@ -142,7 +142,7 @@ class _PillarCardState extends State<_PillarCard> {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      p.accentColor.withOpacity(0.6),
+                      p.accentColor.withValues(alpha: 0.6),
                       const Color(0x1AFFFFFF),
                     ],
                     begin: Alignment.topCenter,
@@ -160,7 +160,7 @@ class _PillarCardState extends State<_PillarCard> {
               width: 44,
               height: 44,
               decoration: BoxDecoration(
-                color: p.accentColor.withOpacity(0.15),
+                color: p.accentColor.withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(14),
                 border: Border.all(
                   color: p.accentColor,
@@ -168,7 +168,7 @@ class _PillarCardState extends State<_PillarCard> {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: p.accentColor.withOpacity(_isHovered ? 0.4 : 0.2),
+                    color: p.accentColor.withValues(alpha: _isHovered ? 0.4 : 0.2),
                     blurRadius: 14,
                   ),
                 ],
@@ -196,12 +196,12 @@ class _PillarCardState extends State<_PillarCard> {
                 color: _isHovered ? AppColors.surfaceLight : AppColors.surfaceCard,
                 borderRadius: BorderRadius.circular(22),
                 border: Border.all(
-                  color: _isHovered ? p.accentColor.withOpacity(0.5) : const Color(0x1AFFFFFF),
+                  color: _isHovered ? p.accentColor.withValues(alpha: 0.5) : const Color(0x1AFFFFFF),
                   width: 1.2,
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: _isHovered ? p.accentColor.withOpacity(0.15) : Colors.black.withOpacity(0.2),
+                    color: _isHovered ? p.accentColor.withValues(alpha: 0.15) : Colors.black.withValues(alpha: 0.2),
                     blurRadius: _isHovered ? 24 : 10,
                     offset: Offset(0, _isHovered ? 6 : 3),
                   ),
@@ -227,7 +227,7 @@ class _PillarCardState extends State<_PillarCard> {
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                         decoration: BoxDecoration(
-                          color: p.accentColor.withOpacity(0.12),
+                          color: p.accentColor.withValues(alpha: 0.12),
                           borderRadius: BorderRadius.circular(8),
                         ),
                         child: Text(

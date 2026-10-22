@@ -16,7 +16,6 @@ class AppTheme {
         primary: AppColors.primary,
         secondary: AppColors.accentIndigo,
         surface: AppColors.surface,
-        background: AppColors.background,
         onPrimary: Colors.black,
         onSurface: AppColors.textPrimary,
       ),

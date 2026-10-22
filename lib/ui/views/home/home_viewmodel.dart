@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:sudhar_portfolio/core/constants/app_strings.dart';
 import 'package:sudhar_portfolio/core/mixins/navigation_mixin.dart';
+import 'package:sudhar_portfolio/core/utils/pdf_download_helper.dart';
+import 'package:sudhar_portfolio/ui/common/resume_dialog.dart';
 
 
 class HomeViewModel extends BaseViewModel with NavigationMixin {
@@ -85,9 +86,24 @@ class HomeViewModel extends BaseViewModel with NavigationMixin {
     return await copyToClipboard(email);
   }
 
-  Future<void> handleDownloadResume() async {
-    // Direct link to CV or GitHub portfolio
-    await openUrl(AppStrings.githubUrl);
+  void openResume(BuildContext context) {
+    ResumeDialog.show(context);
+  }
+
+  Future<void> handleDownloadResumeDirectly() async {
+    await PdfDownloadHelper.downloadResume();
+  }
+
+  Future<void> handleViewResumeDirectly() async {
+    await PdfDownloadHelper.viewResumeInNewTab();
+  }
+
+  Future<void> handleDownloadResume([BuildContext? context]) async {
+    if (context != null) {
+      ResumeDialog.show(context);
+    } else {
+      await PdfDownloadHelper.downloadResume();
+    }
   }
 
   @override

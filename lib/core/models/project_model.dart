@@ -111,6 +111,43 @@ class ProjectsData {
       ],
     ),
 
+    // 3. Volt Spare - Auto Spare Parts E-Commerce Platform (Independent / Own Creation - In Git / Locally Tested)
+    ProjectModel(
+      id: "volt_spare",
+      title: "Volt Spare",
+      subtitle: "Auto Spare Parts E-Commerce Mobile App + API + Admin (Personal Project)",
+      category: "Featured Showcase",
+      company: "Independent / Own Creation",
+      hasBackend: true,
+      isLiveOnStores: false,
+      description:
+          "A comprehensive auto spare parts e-commerce selling platform self-engineered with Flutter as an independent personal project. Currently tested locally and maintained in Git, it features dynamic parts catalogs, vehicle compatibility filtering, cart calculations, and checkout, powered by a dedicated REST API service (spare_api) and an administrative dispatch management panel (spare_admin).",
+      techStack: [
+        "Flutter",
+        "Dart",
+        "Personal Project",
+        "Auto Spare Parts",
+        "spare_api (REST)",
+        "spare_admin",
+        "Cart Engine",
+        "Git (Locally Tested)",
+      ],
+      icon: Icons.car_repair_rounded,
+      primaryColor: Color(0xFF00E5FF),
+      secondaryColor: Color(0xFF02569B),
+      githubUrl: "https://github.com/vscsudhar/spare_shop",
+      backendGithubUrl: "https://github.com/vscsudhar/spare_api",
+      adminGithubUrl: "https://github.com/vscsudhar/spare_admin",
+      keyFeatures: [
+        "E-Commerce auto spare parts selling platform engineered with Flutter as an independent personal ecosystem",
+        "Dynamic parts catalog with search, multi-attribute category filtering, and vehicle compatibility checking",
+        "Robust shopping cart state management, discount application, real-time total calculation, and order checkout",
+        "Dedicated REST API service (spare_api) handling parts inventory, catalog categorization, and user authentication",
+        "Comprehensive administrative dashboard (spare_admin) for inventory allocation, stock management, and order dispatch",
+        "Maintained in Git and rigorously tested locally across physical Android and iOS devices",
+      ],
+    ),
+
     // 2. V2S Connect & Admin (Rank You Higher - Google Play Store Live)
     ProjectModel(
       id: "v2s_connect",
@@ -229,92 +266,98 @@ class ProjectsData {
       ],
     ),
 
-    // 6. Vewin - EV Spare Parts Platform (Shanmara Solutions)
+    // 7. Vewin - Service Vehicle Tracking App (Shanmara Solutions)
     ProjectModel(
-      id: "vewin_spare_parts",
-      title: "Vewin (EV Spare Parts)",
-      subtitle: "EV & Auto Parts Mobile App + Node.js API + Admin",
+      id: "vewin_tracking",
+      title: "Vewin",
+      subtitle: "Service Vehicle Tracking & Fleet Telematics App",
       category: "Featured Showcase",
       company: "Shanmara Solutions",
       hasBackend: true,
       description:
-          "A Flutter-based EV and two-wheeler spare parts platform developed at Shanmara Solutions featuring product discovery, wishlist, rare-product requests and administrative workflows, backed by a Node.js REST API service.",
+          "A service vehicle tracking and fleet telemetry mobile application developed at Shanmara Solutions, featuring real-time GPS location tracking, live route mapping, technician service dispatch, geofenced zones, and vehicle trip history.",
       techStack: [
         "Flutter",
         "Dart",
-        "MVVM",
+        "GPS Tracking",
+        "Google Maps",
+        "Fleet Telematics",
         "REST API",
-        "Node.js",
-        "Admin Panel",
+        "MVVM",
       ],
-      icon: Icons.electric_bike_rounded,
+      icon: Icons.gps_fixed_rounded,
       primaryColor: Color(0xFF00F5A0),
       secondaryColor: Color(0xFF00D2FF),
       githubUrl: "https://github.com/vscsudhar/vewin",
-      backendGithubUrl: "https://github.com/vscsudhar/spare_api",
-      adminGithubUrl: "https://github.com/vscsudhar/spare_shop_admin",
       keyFeatures: [
-        "Dynamic parts catalog with search, category filtering, and vehicle compatibility checker",
-        "Wishlist and rare spare parts inquiry request workflow with status tracking",
-        "Responsive shopping cart with dynamic order calculation and checkout flows",
-        "Clean MVVM architecture ensuring responsive state handling and fast UI rendering",
+        "Real-time GPS tracking for service vehicles with live interactive Google Maps rendering",
+        "Field technician service dispatch status, route tracking, and job arrival logging",
+        "Trip history playback with speed profiling, stoppage detection, and mileage analytics",
+        "Geofencing perimeter alerts for automated entry and exit notifications at client sites",
+        "Optimized background location sync designed for low battery impact and intermittent network coverage",
       ],
     ),
 
-    // 7. Real-Time Chat Application (Own Created / Independent)
+    // 8. Real-Time Chat Application (Rank You Higher Client - In Git / Active Development)
     ProjectModel(
       id: "realtime_chat",
       title: "Real-Time Chat Application",
-      subtitle: "Low-Latency Direct & Group Messaging",
+      subtitle: "Low-Latency Direct & Group Messaging (Client Project • In Git)",
       category: "Featured Showcase",
-      company: "Independent / Own Creation",
+      company: "Rank You Higher",
       hasBackend: true,
+      isLiveOnStores: false,
       description:
-          "A real-time communication application built with Flutter, supporting conversations, messaging and real-time updates through bi-directional WebSocket streaming.",
+          "A real-time communication application built with Flutter for a client at Rank You Higher, supporting conversations, messaging and real-time updates through bi-directional WebSocket streaming. Currently in active development and maintained in Git (not published yet).",
       techStack: [
         "Flutter",
         "Dart",
         "REST API",
         "WebSocket",
         "Local Caching",
+        "In Git (Active Dev)",
       ],
       icon: Icons.chat_bubble_outline_rounded,
       primaryColor: Color(0xFF6366F1),
       secondaryColor: Color(0xFF8B5CF6),
       githubUrl: "https://github.com/vscsudhar",
       keyFeatures: [
+        "Engineered for Rank You Higher client for real-time team and client messaging",
         "Bi-directional WebSocket streaming for instant message transmission and delivery receipts",
         "Live typing indicators, online presence status, and unread message counters",
         "Local caching of chat conversations for instant offline retrieval and fast UI loading",
-        "Custom message bubble animations and media attachments support",
+        "Currently maintained in Git in active development (pre-release)",
       ],
     ),
 
-    // 8. Video Calling Application (Own Created / Independent)
+    // 9. Video Calling Application (Rank You Higher Client - In Git / Active Development)
     ProjectModel(
       id: "video_calling",
       title: "Video Calling Application",
-      subtitle: "Peer-to-Peer Real-Time Video & Audio",
+      subtitle: "Peer-to-Peer Real-Time Video & Audio (Client Project • In Git)",
       category: "Featured Showcase",
-      company: "Independent / Own Creation",
+      company: "Rank You Higher",
+      isLiveOnStores: false,
       description:
-          "A Flutter-based real-time video communication application using WebRTC technology for low-latency peer-to-peer audio and video streaming.",
+          "A Flutter-based real-time video communication application developed for a client at Rank You Higher using WebRTC technology for low-latency peer-to-peer audio and video streaming. Currently in active development and maintained in Git (not published yet).",
       techStack: [
         "Flutter",
         "Dart",
         "WebRTC",
         "Signaling API",
         "P2P Stream",
+        "In Git (Active Dev)",
       ],
       icon: Icons.videocam_rounded,
       primaryColor: Color(0xFFFF5E62),
       secondaryColor: Color(0xFFFFB800),
       githubUrl: "https://github.com/vscsudhar",
       keyFeatures: [
+        "Engineered for Rank You Higher client for low-latency P2P video conferencing",
         "WebRTC peer-to-peer audio and video streaming with adaptive bitrate handling",
         "Call signaling, room creation, and connection lifecycle management",
         "Camera switching, microphone muting, and floating Picture-in-Picture (PiP) window UI",
-        "Hardware-accelerated video rendering maintaining 60 FPS across devices",
+        "Currently maintained in Git in active development (pre-release)",
       ],
     ),
 

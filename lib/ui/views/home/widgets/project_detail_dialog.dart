@@ -24,20 +24,20 @@ class ProjectDetailDialog extends StatelessWidget {
         child: Container(
           constraints: const BoxConstraints(maxWidth: 740, maxHeight: 780),
           decoration: BoxDecoration(
-            color: AppColors.surfaceElevated.withOpacity(0.96),
+            color: AppColors.surfaceElevated.withValues(alpha: 0.96),
             borderRadius: BorderRadius.circular(26),
             border: Border.all(
-              color: project.primaryColor.withOpacity(0.4),
+              color: project.primaryColor.withValues(alpha: 0.4),
               width: 1.5,
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.8),
+                color: Colors.black.withValues(alpha: 0.8),
                 blurRadius: 40,
                 offset: const Offset(0, 15),
               ),
               BoxShadow(
-                color: project.primaryColor.withOpacity(0.18),
+                color: project.primaryColor.withValues(alpha: 0.18),
                 blurRadius: 30,
               ),
             ],
@@ -50,8 +50,8 @@ class ProjectDetailDialog extends StatelessWidget {
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
-                      project.primaryColor.withOpacity(0.2),
-                      project.secondaryColor.withOpacity(0.05),
+                      project.primaryColor.withValues(alpha: 0.2),
+                      project.secondaryColor.withValues(alpha: 0.05),
                     ],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
@@ -69,9 +69,9 @@ class ProjectDetailDialog extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
-                        color: project.primaryColor.withOpacity(0.2),
+                        color: project.primaryColor.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(14),
-                        border: Border.all(color: project.primaryColor.withOpacity(0.4)),
+                        border: Border.all(color: project.primaryColor.withValues(alpha: 0.4)),
                       ),
                       child: Icon(project.icon, color: project.primaryColor, size: 24),
                     ),
@@ -97,9 +97,9 @@ class ProjectDetailDialog extends StatelessWidget {
                                 Container(
                                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                                   decoration: BoxDecoration(
-                                    color: AppColors.accentNeonGreen.withOpacity(0.15),
+                                    color: AppColors.accentNeonGreen.withValues(alpha: 0.15),
                                     borderRadius: BorderRadius.circular(6),
-                                    border: Border.all(color: AppColors.accentNeonGreen.withOpacity(0.5)),
+                                    border: Border.all(color: AppColors.accentNeonGreen.withValues(alpha: 0.5)),
                                   ),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
@@ -121,9 +121,9 @@ class ProjectDetailDialog extends StatelessWidget {
                                 Container(
                                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                                   decoration: BoxDecoration(
-                                    color: AppColors.flutterCyan.withOpacity(0.15),
+                                    color: AppColors.flutterCyan.withValues(alpha: 0.15),
                                     borderRadius: BorderRadius.circular(6),
-                                    border: Border.all(color: AppColors.flutterCyan.withOpacity(0.4)),
+                                    border: Border.all(color: AppColors.flutterCyan.withValues(alpha: 0.4)),
                                   ),
                                   child: Text(
                                     "FULL-STACK (API)",
@@ -147,7 +147,10 @@ class ProjectDetailDialog extends StatelessWidget {
                           if (project.company != null) ...[
                             const SizedBox(height: 2),
                             Text(
-                              "Delivered at: ${project.company!}",
+                              project.company!.toLowerCase().contains("independent") ||
+                                      project.company!.toLowerCase().contains("own")
+                                  ? "Category: ${project.company!}"
+                                  : "Delivered at: ${project.company!}",
                               style: GoogleFonts.jetBrainsMono(
                                 color: AppColors.flutterCyan,
                                 fontSize: 11,
@@ -215,7 +218,7 @@ class ProjectDetailDialog extends StatelessWidget {
                                 margin: const EdgeInsets.only(top: 3),
                                 padding: const EdgeInsets.all(3),
                                 decoration: BoxDecoration(
-                                  color: AppColors.flutterCyan.withOpacity(0.15),
+                                  color: AppColors.flutterCyan.withValues(alpha: 0.15),
                                   shape: BoxShape.circle,
                                 ),
                                 child: const Icon(Icons.check, color: AppColors.flutterCyan, size: 12),

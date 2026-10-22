@@ -11,6 +11,7 @@ class Navbar extends StatelessWidget {
   final Function(int) onNavItemTapped;
   final VoidCallback onContactTapped;
   final VoidCallback onOpenDrawer;
+  final VoidCallback? onResumeTapped;
 
   const Navbar({
     super.key,
@@ -18,6 +19,7 @@ class Navbar extends StatelessWidget {
     required this.onNavItemTapped,
     required this.onContactTapped,
     required this.onOpenDrawer,
+    this.onResumeTapped,
   });
 
   @override
@@ -33,7 +35,7 @@ class Navbar extends StatelessWidget {
             vertical: 14,
           ),
           decoration: BoxDecoration(
-            color: AppColors.background.withOpacity(0.75),
+            color: AppColors.background.withValues(alpha: 0.75),
             border: const Border(
               bottom: BorderSide(color: Color(0x1AFFFFFF), width: 1),
             ),
@@ -53,8 +55,18 @@ class Navbar extends StatelessWidget {
                   icon: const Icon(Icons.menu_rounded, color: Colors.white, size: 26),
                 ),
 
-              // Action CTA Button
-              if (!isMobile) _buildContactButton(),
+              // Action CTA Buttons
+              if (!isMobile)
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    if (onResumeTapped != null) ...[
+                      _ResumeNavButton(onTap: onResumeTapped!),
+                      const SizedBox(width: 12),
+                    ],
+                    _buildContactButton(),
+                  ],
+                ),
             ],
           ),
         ),
@@ -77,7 +89,7 @@ class Navbar extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.flutterCyan.withOpacity(0.4),
+                  color: AppColors.flutterCyan.withValues(alpha: 0.4),
                   blurRadius: 12,
                   offset: const Offset(0, 2),
                 ),
@@ -206,8 +218,8 @@ class _NavHoverItemState extends State<_NavHoverItem> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: widget.isActive
-                ? AppColors.flutterCyan.withOpacity(0.1)
-                : (_isHovered ? Colors.white.withOpacity(0.05) : Colors.transparent),
+                ? AppColors.flutterCyan.withValues(alpha: 0.1)
+                : (_isHovered ? Colors.white.withValues(alpha: 0.05) : Colors.transparent),
           ),
           child: Row(
             children: [
@@ -272,13 +284,13 @@ class _HoverGlowButtonState extends State<_HoverGlowButton> {
             color: _isHovered ? null : AppColors.surfaceElevated,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
-              color: _isHovered ? Colors.transparent : AppColors.flutterCyan.withOpacity(0.4),
+              color: _isHovered ? Colors.transparent : AppColors.flutterCyan.withValues(alpha: 0.4),
               width: 1.2,
             ),
             boxShadow: _isHovered
                 ? [
                     BoxShadow(
-                      color: AppColors.flutterCyan.withOpacity(0.4),
+                      color: AppColors.flutterCyan.withValues(alpha: 0.4),
                       blurRadius: 16,
                       offset: const Offset(0, 4),
                     ),
@@ -301,6 +313,72 @@ class _HoverGlowButtonState extends State<_HoverGlowButton> {
                 widget.icon,
                 size: 14,
                 color: _isHovered ? Colors.black : AppColors.flutterCyan,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ResumeNavButton extends StatefulWidget {
+  final VoidCallback onTap;
+
+  const _ResumeNavButton({required this.onTap});
+
+  @override
+  State<_ResumeNavButton> createState() => _ResumeNavButtonState();
+}
+
+class _ResumeNavButtonState extends State<_ResumeNavButton> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        onTap: widget.onTap,
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          decoration: BoxDecoration(
+            color: _isHovered
+                ? AppColors.flutterCyan.withValues(alpha: 0.15)
+                : const Color(0x0FFFFFFF),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: _isHovered ? AppColors.flutterCyan : const Color(0x33FFFFFF),
+              width: 1.2,
+            ),
+            boxShadow: _isHovered
+                ? [
+                    BoxShadow(
+                      color: AppColors.flutterCyan.withValues(alpha: 0.25),
+                      blurRadius: 12,
+                    ),
+                  ]
+                : [],
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(
+                Icons.description_rounded,
+                size: 15,
+                color: _isHovered ? AppColors.flutterCyan : AppColors.textSecondary,
+              ),
+              const SizedBox(width: 6),
+              Text(
+                "Resume",
+                style: GoogleFonts.spaceGrotesk(
+                  color: _isHovered ? Colors.white : AppColors.textPrimary,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ],
           ),

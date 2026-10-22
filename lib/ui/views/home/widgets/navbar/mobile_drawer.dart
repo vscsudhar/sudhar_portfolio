@@ -8,12 +8,14 @@ class MobileDrawer extends StatelessWidget {
   final int activeIndex;
   final Function(int) onNavItemTapped;
   final VoidCallback onContactTapped;
+  final VoidCallback? onResumeTapped;
 
   const MobileDrawer({
     super.key,
     required this.activeIndex,
     required this.onNavItemTapped,
     required this.onContactTapped,
+    this.onResumeTapped,
   });
 
   @override
@@ -90,7 +92,7 @@ class MobileDrawer extends StatelessWidget {
                         onNavItemTapped(index);
                       },
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                      tileColor: isActive ? AppColors.flutterCyan.withOpacity(0.12) : Colors.transparent,
+                      tileColor: isActive ? AppColors.flutterCyan.withValues(alpha: 0.12) : Colors.transparent,
                       leading: Icon(
                         item["icon"] as IconData,
                         color: isActive ? AppColors.flutterCyan : AppColors.textSecondary,
@@ -116,6 +118,34 @@ class MobileDrawer extends StatelessWidget {
                   },
                 ),
               ),
+
+              // Resume CTA
+              if (onResumeTapped != null) ...[
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton.icon(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                      onResumeTapped!();
+                    },
+                    icon: const Icon(Icons.description_rounded, color: AppColors.flutterCyan, size: 16),
+                    label: Text(
+                      "View / Download Resume",
+                      style: GoogleFonts.spaceGrotesk(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13.5,
+                      ),
+                    ),
+                    style: OutlinedButton.styleFrom(
+                      side: BorderSide(color: AppColors.flutterCyan.withValues(alpha: 0.5)),
+                      padding: const EdgeInsets.symmetric(vertical: 13),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
+              ],
 
               // Action CTA
               SizedBox(

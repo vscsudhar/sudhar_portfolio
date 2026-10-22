@@ -30,6 +30,7 @@ class HomeView extends StackedView<HomeViewModel> {
           activeIndex: activeIndex,
           onNavItemTapped: viewModel.scrollToLevel,
           onContactTapped: viewModel.scrollToContact,
+          onResumeTapped: () => viewModel.openResume(context),
         ),
       ),
       body: AnimatedBackground(
@@ -51,7 +52,7 @@ class HomeView extends StackedView<HomeViewModel> {
                       child: Level1Hero(
                         onViewWorkTapped: viewModel.scrollToWork,
                         onContactTapped: viewModel.scrollToContact,
-                        onDownloadResumeTapped: viewModel.handleDownloadResume,
+                        onDownloadResumeTapped: () => viewModel.openResume(context),
                       ),
                     ),
 
@@ -82,6 +83,7 @@ class HomeView extends StackedView<HomeViewModel> {
                         onOpenUrl: viewModel.handleOpenUrl,
                         onSendEmail: viewModel.handleSendEmail,
                         onCopyEmail: viewModel.handleCopyEmail,
+                        onResumeTapped: () => viewModel.openResume(context),
                         onBackToTop: viewModel.scrollToTop,
                       ),
                     ),
@@ -101,6 +103,7 @@ class HomeView extends StackedView<HomeViewModel> {
                   activeIndex: activeIndex,
                   onNavItemTapped: viewModel.scrollToLevel,
                   onContactTapped: viewModel.scrollToContact,
+                  onResumeTapped: () => viewModel.openResume(context),
                   onOpenDrawer: () => scaffoldKey.currentState?.openEndDrawer(),
                 ),
               ),

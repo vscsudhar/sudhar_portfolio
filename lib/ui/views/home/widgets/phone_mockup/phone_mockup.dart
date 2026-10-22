@@ -51,12 +51,12 @@ class _PhoneMockupState extends State<PhoneMockup> {
                   borderRadius: BorderRadius.circular(50),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.flutterCyan.withOpacity(0.25),
+                      color: AppColors.flutterCyan.withValues(alpha: 0.25),
                       blurRadius: 70,
                       spreadRadius: 10,
                     ),
                     BoxShadow(
-                      color: AppColors.accentIndigo.withOpacity(0.20),
+                      color: AppColors.accentIndigo.withValues(alpha: 0.20),
                       blurRadius: 90,
                       spreadRadius: 20,
                     ),
@@ -78,18 +78,18 @@ class _PhoneMockupState extends State<PhoneMockup> {
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.7),
+                    color: Colors.black.withValues(alpha: 0.7),
                     blurRadius: 35,
                     offset: const Offset(0, 20),
                   ),
                   BoxShadow(
-                    color: AppColors.flutterCyan.withOpacity(0.2),
+                    color: AppColors.flutterCyan.withValues(alpha: 0.2),
                     blurRadius: 20,
                     spreadRadius: -2,
                   ),
                 ],
                 border: Border.all(
-                  color: AppColors.flutterCyan.withOpacity(0.4),
+                  color: AppColors.flutterCyan.withValues(alpha: 0.4),
                   width: 2.2,
                 ),
               ),
@@ -252,13 +252,13 @@ class _PhoneMockupState extends State<PhoneMockup> {
               ],
             ),
           ),
-          Row(
+          const Row(
             children: [
-              const Icon(Icons.signal_cellular_alt, color: Colors.white, size: 11),
-              const SizedBox(width: 3),
-              const Icon(Icons.wifi, color: Colors.white, size: 11),
-              const SizedBox(width: 3),
-              const Icon(Icons.battery_full, color: AppColors.accentNeonGreen, size: 13),
+              Icon(Icons.signal_cellular_alt, color: Colors.white, size: 11),
+              SizedBox(width: 3),
+              Icon(Icons.wifi, color: Colors.white, size: 11),
+              SizedBox(width: 3),
+              Icon(Icons.battery_full, color: AppColors.accentNeonGreen, size: 13),
             ],
           ),
         ],
@@ -277,13 +277,25 @@ class _PhoneMockupState extends State<PhoneMockup> {
               height: 32,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                gradient: AppColors.primaryGradient,
-                border: Border.all(color: Colors.white.withOpacity(0.3), width: 1.5),
+                border: Border.all(color: AppColors.flutterCyan.withValues(alpha: 0.5), width: 1.5),
               ),
-              child: const Center(
-                child: Text(
-                  "S",
-                  style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 14),
+              child: ClipOval(
+                child: Image.asset(
+                  'assets/images/profile/profile.jpg',
+                  fit: BoxFit.cover,
+                  alignment: Alignment.topCenter,
+                  errorBuilder: (_, __, ___) => Container(
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: AppColors.primaryGradient,
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "S",
+                        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 14),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -343,10 +355,10 @@ class _PhoneMockupState extends State<PhoneMockup> {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        border: Border.all(color: AppColors.flutterCyan.withOpacity(0.3), width: 1),
+        border: Border.all(color: AppColors.flutterCyan.withValues(alpha: 0.3), width: 1),
         boxShadow: [
           BoxShadow(
-            color: AppColors.flutterCyan.withOpacity(0.15),
+            color: AppColors.flutterCyan.withValues(alpha: 0.15),
             blurRadius: 12,
             offset: const Offset(0, 4),
           ),
@@ -388,7 +400,7 @@ class _PhoneMockupState extends State<PhoneMockup> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                 decoration: BoxDecoration(
-                  color: AppColors.accentNeonGreen.withOpacity(0.15),
+                  color: AppColors.accentNeonGreen.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: Row(
@@ -430,9 +442,9 @@ class _PhoneMockupState extends State<PhoneMockup> {
               width: 44,
               height: 44,
               decoration: BoxDecoration(
-                color: (act["color"] as Color).withOpacity(0.12),
+                color: (act["color"] as Color).withValues(alpha: 0.12),
                 borderRadius: BorderRadius.circular(14),
-                border: Border.all(color: (act["color"] as Color).withOpacity(0.3)),
+                border: Border.all(color: (act["color"] as Color).withValues(alpha: 0.3)),
               ),
               child: Icon(act["icon"] as IconData, color: act["color"] as Color, size: 18),
             ),
@@ -462,7 +474,7 @@ class _PhoneMockupState extends State<PhoneMockup> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               decoration: BoxDecoration(
-                color: isSel ? AppColors.flutterCyan.withOpacity(0.2) : AppColors.surfaceElevated,
+                color: isSel ? AppColors.flutterCyan.withValues(alpha: 0.2) : AppColors.surfaceElevated,
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(
                   color: isSel ? AppColors.flutterCyan : Colors.transparent,
@@ -492,7 +504,7 @@ class _PhoneMockupState extends State<PhoneMockup> {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: AppColors.surfaceElevated.withOpacity(0.5),
+        color: AppColors.surfaceElevated.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: const Color(0x1AFFFFFF)),
       ),
@@ -531,7 +543,7 @@ class _PhoneMockupState extends State<PhoneMockup> {
             children: [
               CircleAvatar(
                 radius: 12,
-                backgroundColor: color.withOpacity(0.15),
+                backgroundColor: color.withValues(alpha: 0.15),
                 child: Icon(
                   color == AppColors.accentNeonGreen ? Icons.arrow_downward : Icons.arrow_upward,
                   color: color,
@@ -601,17 +613,17 @@ class _PhoneMockupState extends State<PhoneMockup> {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
-        color: AppColors.surfaceElevated.withOpacity(0.92),
+        color: AppColors.surfaceElevated.withValues(alpha: 0.92),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.borderLight),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.5),
+            color: Colors.black.withValues(alpha: 0.5),
             blurRadius: 18,
             offset: const Offset(0, 8),
           ),
           BoxShadow(
-            color: AppColors.flutterCyan.withOpacity(0.12),
+            color: AppColors.flutterCyan.withValues(alpha: 0.12),
             blurRadius: 10,
           ),
         ],
@@ -679,7 +691,7 @@ class _MiniSparklinePainter extends CustomPainter {
 
     final fillPaint = Paint()
       ..shader = LinearGradient(
-        colors: [AppColors.flutterCyan.withOpacity(0.3), Colors.transparent],
+        colors: [AppColors.flutterCyan.withValues(alpha: 0.3), Colors.transparent],
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
       ).createShader(Rect.fromLTWH(0, 0, size.width, size.height));

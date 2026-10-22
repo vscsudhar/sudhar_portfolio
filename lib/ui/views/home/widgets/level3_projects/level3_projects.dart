@@ -56,7 +56,7 @@ class _Level3ProjectsState extends State<Level3Projects> {
   void _showProjectDetails(BuildContext context, ProjectModel project) {
     showDialog(
       context: context,
-      barrierColor: Colors.black.withOpacity(0.8),
+      barrierColor: Colors.black.withValues(alpha: 0.8),
       builder: (context) => ProjectDetailDialog(
         project: project,
         onOpenUrl: widget.onOpenUrl,
@@ -135,9 +135,9 @@ class _Level3ProjectsState extends State<Level3Projects> {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
           decoration: BoxDecoration(
-            color: AppColors.flutterCyan.withOpacity(0.12),
+            color: AppColors.flutterCyan.withValues(alpha: 0.12),
             borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: AppColors.flutterCyan.withOpacity(0.35)),
+            border: Border.all(color: AppColors.flutterCyan.withValues(alpha: 0.35)),
           ),
           child: Text(
             "LEVEL 03 • PRODUCTION APPS & GITHUB REPOSITORIES",
@@ -199,7 +199,7 @@ class _Level3ProjectsState extends State<Level3Projects> {
                   boxShadow: isSelected
                       ? [
                           BoxShadow(
-                            color: AppColors.flutterCyan.withOpacity(0.35),
+                            color: AppColors.flutterCyan.withValues(alpha: 0.35),
                             blurRadius: 12,
                             offset: const Offset(0, 3),
                           ),
@@ -261,7 +261,7 @@ class _ProjectCardState extends State<_ProjectCard> {
           ),
           boxShadow: [
             BoxShadow(
-              color: _isHovered ? p.primaryColor.withOpacity(0.22) : Colors.black.withOpacity(0.25),
+              color: _isHovered ? p.primaryColor.withValues(alpha: 0.22) : Colors.black.withValues(alpha: 0.25),
               blurRadius: _isHovered ? 26 : 10,
               offset: Offset(0, _isHovered ? 8 : 4),
             ),
@@ -282,8 +282,8 @@ class _ProjectCardState extends State<_ProjectCard> {
                 ),
                 gradient: LinearGradient(
                   colors: [
-                    p.primaryColor.withOpacity(0.22),
-                    p.secondaryColor.withOpacity(0.08),
+                    p.primaryColor.withValues(alpha: 0.22),
+                    p.secondaryColor.withValues(alpha: 0.08),
                     AppColors.surfaceElevated,
                   ],
                   begin: Alignment.topLeft,
@@ -300,12 +300,12 @@ class _ProjectCardState extends State<_ProjectCard> {
                           duration: const Duration(milliseconds: 200),
                           width: 48,
                           height: 48,
-                          transform: Matrix4.identity()..scale(_isHovered ? 1.08 : 1.0),
+                          transform: Matrix4.diagonal3Values(_isHovered ? 1.08 : 1.0, _isHovered ? 1.08 : 1.0, 1.0),
                           decoration: BoxDecoration(
-                            color: p.primaryColor.withOpacity(0.2),
+                            color: p.primaryColor.withValues(alpha: 0.2),
                             borderRadius: BorderRadius.circular(14),
                             border: Border.all(
-                              color: p.primaryColor.withOpacity(0.6),
+                              color: p.primaryColor.withValues(alpha: 0.6),
                               width: 1.2,
                             ),
                           ),
@@ -352,13 +352,13 @@ class _ProjectCardState extends State<_ProjectCard> {
                     padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 4),
                     decoration: BoxDecoration(
                       color: p.isLiveOnStores
-                          ? AppColors.accentNeonGreen.withOpacity(0.15)
-                          : (p.hasBackend ? AppColors.flutterCyan.withOpacity(0.15) : const Color(0x14FFFFFF)),
+                          ? AppColors.accentNeonGreen.withValues(alpha: 0.15)
+                          : (p.hasBackend ? AppColors.flutterCyan.withValues(alpha: 0.15) : const Color(0x14FFFFFF)),
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
                         color: p.isLiveOnStores
-                            ? AppColors.accentNeonGreen.withOpacity(0.5)
-                            : (p.hasBackend ? AppColors.flutterCyan.withOpacity(0.4) : const Color(0x22FFFFFF)),
+                            ? AppColors.accentNeonGreen.withValues(alpha: 0.5)
+                            : (p.hasBackend ? AppColors.flutterCyan.withValues(alpha: 0.4) : const Color(0x22FFFFFF)),
                       ),
                     ),
                     child: Row(
@@ -493,6 +493,26 @@ class _ProjectCardState extends State<_ProjectCard> {
                             ),
                             style: OutlinedButton.styleFrom(
                               side: const BorderSide(color: AppColors.accentNeonGreen, width: 1.0),
+                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                            ),
+                          ),
+
+                        // Admin Panel Repo Button (if available)
+                        if (p.adminGithubUrl != null)
+                          OutlinedButton.icon(
+                            onPressed: () => widget.onOpenUrl(p.adminGithubUrl!),
+                            icon: const Icon(Icons.admin_panel_settings_rounded, size: 13, color: Color(0xFF38BDF8)),
+                            label: Text(
+                              "Admin Repo",
+                              style: GoogleFonts.spaceGrotesk(
+                                color: const Color(0xFF38BDF8),
+                                fontSize: 11.5,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            style: OutlinedButton.styleFrom(
+                              side: const BorderSide(color: Color(0x6638BDF8), width: 1.0),
                               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                             ),

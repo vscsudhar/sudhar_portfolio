@@ -18,7 +18,7 @@ class AppStrings {
   // Buttons
   static const String btnViewWork = "View My Work";
   static const String btnContactMe = "Let's Connect";
-  static const String btnDownloadResume = "Download Resume";
+  static const String btnDownloadResume = "Resume (View & Download)";
   static const String btnEmailMe = "Email Me";
   static const String btnGitHub = "GitHub";
   static const String btnLinkedIn = "LinkedIn";
@@ -43,7 +43,7 @@ class AppStrings {
   static const String location = "Coimbatore, Tamil Nadu, India";
   static const String email = "vscsudhar@gmail.com";
   static const String githubUrl = "https://github.com/vscsudhar";
-  static const String linkedinUrl = "https://linkedin.com/in/sudharsan-flutter";
+  static const String linkedinUrl = "https://linkedin.com/in/sudharsanan-dinakaran";
   static const String twitterUrl = "https://x.com/sudharsan_flutter";
 
   // Footer

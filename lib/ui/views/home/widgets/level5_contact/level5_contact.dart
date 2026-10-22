@@ -9,6 +9,7 @@ class Level5Contact extends StatelessWidget {
   final Future<void> Function({required String email, String? subject, String? body}) onSendEmail;
   final Future<bool> Function(String) onCopyEmail;
   final VoidCallback onBackToTop;
+  final VoidCallback? onResumeTapped;
 
   const Level5Contact({
     super.key,
@@ -16,7 +17,50 @@ class Level5Contact extends StatelessWidget {
     required this.onSendEmail,
     required this.onCopyEmail,
     required this.onBackToTop,
+    this.onResumeTapped,
   });
+
+  Future<void> _handleEmailTap(BuildContext context) async {
+    await onSendEmail(
+      email: AppStrings.email,
+      subject: "Full-Stack / Flutter Project Inquiry",
+      body: "Hi Sudharsanan,\n\nI would like to connect with you regarding an application project...",
+    );
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: const Color(0xFF0F172A),
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+            side: BorderSide(color: AppColors.flutterCyan.withValues(alpha: 0.5)),
+          ),
+          content: Row(
+            children: [
+              const Icon(Icons.mark_email_read_rounded, color: AppColors.flutterCyan, size: 20),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  "Created email compose draft to ${AppStrings.email}",
+                  style: GoogleFonts.spaceGrotesk(
+                    color: Colors.white,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          action: SnackBarAction(
+            label: "Copy Email",
+            textColor: AppColors.accentNeonGreen,
+            onPressed: () => onCopyEmail(AppStrings.email),
+          ),
+          duration: const Duration(seconds: 4),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,10 +92,10 @@ class Level5Contact extends StatelessWidget {
                     end: Alignment.bottomRight,
                   ),
                   borderRadius: BorderRadius.circular(30),
-                  border: Border.all(color: AppColors.flutterCyan.withOpacity(0.35), width: 1.2),
+                  border: Border.all(color: AppColors.flutterCyan.withValues(alpha: 0.35), width: 1.2),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.flutterCyan.withOpacity(0.12),
+                      color: AppColors.flutterCyan.withValues(alpha: 0.12),
                       blurRadius: 35,
                       offset: const Offset(0, 10),
                     ),
@@ -63,9 +107,9 @@ class Level5Contact extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
                       decoration: BoxDecoration(
-                        color: AppColors.flutterCyan.withOpacity(0.12),
+                        color: AppColors.flutterCyan.withValues(alpha: 0.12),
                         borderRadius: BorderRadius.circular(30),
-                        border: Border.all(color: AppColors.flutterCyan.withOpacity(0.4)),
+                        border: Border.all(color: AppColors.flutterCyan.withValues(alpha: 0.4)),
                       ),
                       child: Text(
                         "LEVEL 05 • GET IN TOUCH",
@@ -108,18 +152,14 @@ class Level5Contact extends StatelessWidget {
 
                     // Display Email Address Badge
                     InkWell(
-                      onTap: () => onSendEmail(
-                        email: AppStrings.email,
-                        subject: "Full-Stack & Flutter Project Inquiry",
-                        body: "Hi Sudharsanan,\n\nI would like to discuss a project with you...",
-                      ),
+                      onTap: () => _handleEmailTap(context),
                       borderRadius: BorderRadius.circular(16),
                       child: Container(
                         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
                         decoration: BoxDecoration(
-                          color: AppColors.flutterCyan.withOpacity(0.1),
+                          color: AppColors.flutterCyan.withValues(alpha: 0.1),
                           borderRadius: BorderRadius.circular(16),
-                          border: Border.all(color: AppColors.flutterCyan.withOpacity(0.3)),
+                          border: Border.all(color: AppColors.flutterCyan.withValues(alpha: 0.3)),
                         ),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
@@ -152,12 +192,16 @@ class Level5Contact extends StatelessWidget {
                           icon: Icons.mail_outline_rounded,
                           color: AppColors.flutterCyan,
                           isPrimary: true,
-                          onTap: () => onSendEmail(
-                            email: AppStrings.email,
-                            subject: "Full-Stack / Flutter Project Inquiry",
-                            body: "Hi Sudharsanan,\n\nI would like to connect with you regarding an application project...",
-                          ),
+                          onTap: () => _handleEmailTap(context),
                         ),
+                        if (onResumeTapped != null)
+                          _ContactActionBtn(
+                            title: "Resume PDF",
+                            icon: Icons.description_rounded,
+                            color: AppColors.accentNeonGreen,
+                            isPrimary: false,
+                            onTap: onResumeTapped!,
+                          ),
                         _ContactActionBtn(
                           title: AppStrings.btnGitHub,
                           icon: Icons.code_rounded,
@@ -181,7 +225,7 @@ class Level5Contact extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                       decoration: BoxDecoration(
-                        color: AppColors.surfaceElevated.withOpacity(0.6),
+                        color: AppColors.surfaceElevated.withValues(alpha: 0.6),
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(color: const Color(0x1FFFFFFF)),
                       ),
@@ -264,7 +308,7 @@ class Level5Contact extends StatelessWidget {
                       foregroundColor: AppColors.flutterCyan,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
-                        side: BorderSide(color: AppColors.flutterCyan.withOpacity(0.3)),
+                        side: BorderSide(color: AppColors.flutterCyan.withValues(alpha: 0.3)),
                       ),
                       tooltip: "Back to Top",
                       child: const Icon(Icons.arrow_upward_rounded, size: 18),
@@ -327,7 +371,7 @@ class _ContactActionBtnState extends State<_ContactActionBtn> {
             boxShadow: [
               BoxShadow(
                 color: (widget.isPrimary ? AppColors.flutterCyan : widget.color)
-                    .withOpacity(_isHovered ? 0.4 : 0.15),
+                    .withValues(alpha: _isHovered ? 0.4 : 0.15),
                 blurRadius: _isHovered ? 20 : 8,
                 offset: const Offset(0, 4),
               ),

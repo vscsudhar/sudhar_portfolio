@@ -72,9 +72,9 @@ class Level2Skills extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
           decoration: BoxDecoration(
-            color: AppColors.flutterCyan.withOpacity(0.12),
+            color: AppColors.flutterCyan.withValues(alpha: 0.12),
             borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: AppColors.flutterCyan.withOpacity(0.35)),
+            border: Border.all(color: AppColors.flutterCyan.withValues(alpha: 0.35)),
           ),
           child: Text(
             "LEVEL 02 • ABOUT & SPECIALIZATION",
@@ -177,7 +177,7 @@ class Level2Skills extends StatelessWidget {
                 color: color,
                 shape: BoxShape.circle,
                 boxShadow: [
-                  BoxShadow(color: color.withOpacity(0.4), blurRadius: 8),
+                  BoxShadow(color: color.withValues(alpha: 0.4), blurRadius: 8),
                 ],
               ),
             ),
@@ -326,8 +326,8 @@ class _AboutInfoCardState extends State<_AboutInfoCard> {
           gradient: c.isDominant
               ? LinearGradient(
                   colors: [
-                    AppColors.flutterCyan.withOpacity(0.18),
-                    AppColors.accentIndigo.withOpacity(0.10),
+                    AppColors.flutterCyan.withValues(alpha: 0.18),
+                    AppColors.accentIndigo.withValues(alpha: 0.10),
                     AppColors.surfaceCard,
                   ],
                   begin: Alignment.topLeft,
@@ -336,13 +336,13 @@ class _AboutInfoCardState extends State<_AboutInfoCard> {
               : null,
           border: Border.all(
             color: c.isDominant
-                ? AppColors.flutterCyan.withOpacity(_isHovered ? 0.8 : 0.45)
-                : (_isHovered ? c.accentColor.withOpacity(0.6) : const Color(0x1AFFFFFF)),
+                ? AppColors.flutterCyan.withValues(alpha: _isHovered ? 0.8 : 0.45)
+                : (_isHovered ? c.accentColor.withValues(alpha: 0.6) : const Color(0x1AFFFFFF)),
             width: c.isDominant ? 1.5 : 1.0,
           ),
           boxShadow: [
             BoxShadow(
-              color: c.accentColor.withOpacity(c.isDominant ? 0.25 : (_isHovered ? 0.2 : 0.05)),
+              color: c.accentColor.withValues(alpha: c.isDominant ? 0.25 : (_isHovered ? 0.2 : 0.05)),
               blurRadius: _isHovered ? 20 : 10,
               offset: Offset(0, _isHovered ? 6 : 3),
             ),
@@ -358,10 +358,10 @@ class _AboutInfoCardState extends State<_AboutInfoCard> {
                 Container(
                   padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: c.accentColor.withOpacity(0.15),
+                    color: c.accentColor.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(
-                      color: c.accentColor.withOpacity(0.35),
+                      color: c.accentColor.withValues(alpha: 0.35),
                     ),
                   ),
                   child: Icon(c.icon, size: 22, color: c.accentColor),
@@ -370,9 +370,9 @@ class _AboutInfoCardState extends State<_AboutInfoCard> {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
                     decoration: BoxDecoration(
-                      color: AppColors.flutterCyan.withOpacity(0.15),
+                      color: AppColors.flutterCyan.withValues(alpha: 0.15),
                       borderRadius: BorderRadius.circular(6),
-                      border: Border.all(color: AppColors.flutterCyan.withOpacity(0.4)),
+                      border: Border.all(color: AppColors.flutterCyan.withValues(alpha: 0.4)),
                     ),
                     child: Text(
                       "CORE FOCUS",
@@ -453,19 +453,19 @@ class _SkillGlassCardState extends State<_SkillGlassCard> {
         decoration: BoxDecoration(
           color: _isHovered
               ? AppColors.surfaceLight
-              : (widget.isPrimary ? AppColors.surfaceCard : AppColors.surfaceElevated.withOpacity(0.6)),
+              : (widget.isPrimary ? AppColors.surfaceCard : AppColors.surfaceElevated.withValues(alpha: 0.6)),
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
             color: _isHovered
-                ? s.accentColor.withOpacity(0.7)
+                ? s.accentColor.withValues(alpha: 0.7)
                 : (widget.isPrimary
-                    ? s.accentColor.withOpacity(0.3)
+                    ? s.accentColor.withValues(alpha: 0.3)
                     : const Color(0x14FFFFFF)),
             width: widget.isPrimary ? 1.3 : 1.0,
           ),
           boxShadow: [
             BoxShadow(
-              color: _isHovered ? s.accentColor.withOpacity(0.22) : Colors.black.withOpacity(0.15),
+              color: _isHovered ? s.accentColor.withValues(alpha: 0.22) : Colors.black.withValues(alpha: 0.15),
               blurRadius: _isHovered ? 18 : 6,
               offset: Offset(0, _isHovered ? 5 : 2),
             ),
@@ -478,10 +478,10 @@ class _SkillGlassCardState extends State<_SkillGlassCard> {
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: s.accentColor.withOpacity(widget.isPrimary ? 0.16 : 0.09),
+                color: s.accentColor.withValues(alpha: widget.isPrimary ? 0.16 : 0.09),
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: s.accentColor.withOpacity(_isHovered ? 0.6 : 0.2),
+                  color: s.accentColor.withValues(alpha: _isHovered ? 0.6 : 0.2),
                 ),
               ),
               child: Icon(
